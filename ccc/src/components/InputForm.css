@@ -16,9 +16,10 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     width: 50%;
-    height: fit-content;
+    height: 370px;
     padding-bottom: 30px;
     margin-top: 10px;
+    margin-left: 340px;
 
 }
 .detailform{
@@ -96,4 +97,9 @@
     height: fit-content;
     width: fit-content;
     margin-left: 35px;
+}
+.send{
+    margin-top: 30px;
+    margin-left: 450px;
+    /* border: 1px solid #ccc; */
 }
