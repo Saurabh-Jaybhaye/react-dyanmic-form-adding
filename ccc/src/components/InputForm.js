@@ -73,9 +73,9 @@ export const InputForm = () => {
         </button>
       </div>
 
-      <form className="incontainer" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
-          <div key={inputField.id}>
+          <div key={inputField.id} className="incontainer">
             <div className="row g-3">
               <div className="detailform">
                 <input
