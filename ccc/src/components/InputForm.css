@@ -1,9 +1,16 @@
 .nav{
     margin-top: 20px;
-    margin-left: 60px;
+    margin-left: 340px;
+    /* border: 1px solid #ccc; */
+    width: fit-content;
+    height: fit-content;
 }
+
 .btn{
     margin-left:10px;
+    /* border: 1px solid #ccc; */
+    width: fit-content;
+    height: fit-content;
 }
 .incontainer{
     border: 1px solid #ccc;
@@ -11,6 +18,7 @@
     width: 50%;
     height: fit-content;
     padding-bottom: 30px;
+    margin-top: 10px;
 
 }
 .detailform{
