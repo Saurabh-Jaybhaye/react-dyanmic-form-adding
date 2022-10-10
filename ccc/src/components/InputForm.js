@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Nav } from "./Nav";
 import "./InputForm.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,13 +14,17 @@ export const InputForm = () => {
       maxRam: "",
       minVcpu: "1",
       maxVcpu: "",
-      storage: "1",
+      storage: "",
     },
   ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("InputFields", inputFields);
+  };
+
+  const refreshPage = (e) => {
+    window.location.reload(false);
   };
 
   const handleChangeInput = (id, event) => {
@@ -36,7 +41,17 @@ export const InputForm = () => {
   const handleAddFields = () => {
     setInputFields([
       ...inputFields,
-      { id: uuidv4(), firstName: "", lastName: "" },
+      {
+        id: uuidv4(),
+        deployment: "",
+        minPods: "1",
+        maxPods: "",
+        minRam: "1",
+        maxRam: "",
+        minVcpu: "1",
+        maxVcpu: "",
+        storage: "",
+      },
     ]);
   };
 
@@ -51,22 +66,14 @@ export const InputForm = () => {
 
   return (
     <div className="topdiv">
+      <Nav />
       <div className="nav">
-        <button type="button" class="btn btn-outline-primary">
-          Home
-        </button>{" "}
-        <button type="button" class="btn btn-outline-primary">
-          About Us
-        </button>
-      </div>
-
-      <div className="nav">
-        <button type="button" class="btn btn-secondary">
+        <button type="button" className="btn btn-secondary">
           DEPLOYMENTS
         </button>{" "}
         <button
           type="button"
-          class="btn btn-secondary"
+          className="btn btn-secondary"
           onClick={handleAddFields}
         >
           DEPLOYMENTS +
@@ -80,8 +87,8 @@ export const InputForm = () => {
               <div className="detailform">
                 <input
                   type="text"
-                  readonly
-                  class="form-control-plaintext"
+                  readOnly
+                  className="form-control-plaintext"
                   placeholder="Deployment 1"
                   name="deployment"
                   value={inputField.deployment}
@@ -92,7 +99,7 @@ export const InputForm = () => {
               <div className="closebtn">
                 <button
                   type="button"
-                  class="btn btn-outline-primar"
+                  className="btn btn-outline-primar"
                   disabled={inputFields.length === 1}
                   onClick={() => handleRemoveFields(inputField.id)}
                 >
@@ -139,7 +146,15 @@ export const InputForm = () => {
                     }
                   />
                 </div>
-                <div className="maininputstwo">
+
+                <div className="unit">
+                  <select name="unit" id="unit">
+                    <option value="MiB">MiB</option>
+                    <option value="GiB">GiB</option>
+                  </select>
+                </div>
+
+                <div className="max maininputstwo">
                   <label> Max RAM </label>
                   <input
                     type="number"
@@ -149,6 +164,13 @@ export const InputForm = () => {
                       handleChangeInput(inputField.id, event)
                     }
                   />
+                </div>
+
+                <div className="unittwo max">
+                  <select name="unit" id="unit">
+                    <option value="MiB">MiB</option>
+                    <option value="GiB">GiB</option>
+                  </select>
                 </div>
               </div>
 
@@ -165,7 +187,15 @@ export const InputForm = () => {
                     }
                   />
                 </div>
-                <div className="maininputstwo">
+
+                <div className="unit">
+                  <select name="unit" id="unit">
+                    <option value="MiB">MiB</option>
+                    <option value="GiB">GiB</option>
+                  </select>
+                </div>
+
+                <div className="maininputstwo max">
                   <label> Max vCPU </label>
                   <input
                     type="number"
@@ -175,6 +205,13 @@ export const InputForm = () => {
                       handleChangeInput(inputField.id, event)
                     }
                   />
+                </div>
+
+                <div className="unittwo max">
+                  <select name="unit" id="unit">
+                    <option value="MiB">MiB</option>
+                    <option value="GiB">GiB</option>
+                  </select>
                 </div>
               </div>
 
@@ -193,13 +230,13 @@ export const InputForm = () => {
               </div>
 
               <div className="reset">
-                <button type="button" class="btn btn-outline-primar">
+                <button type="button" className="btn btn-outline-primar">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     fill="currentColor"
-                    class="bi bi-bootstrap-reboot"
+                    className="bi bi-bootstrap-reboot"
                     viewBox="0 0 16 16"
                   >
                     <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z" />
@@ -211,13 +248,17 @@ export const InputForm = () => {
               </div>
 
               <div className="reset">
-                <button type="button" class="btn btn-outline-primar">
+                <button
+                  type="button"
+                  className="btn btn-outline-primar"
+                  onClick={handleAddFields}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     fill="currentColor"
-                    class="bi bi-check2-circle"
+                    className="bi bi-check2-circle"
                     viewBox="0 0 16 16"
                   >
                     <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
@@ -231,12 +272,16 @@ export const InputForm = () => {
           </div>
         ))}
         <div className="nav send">
-          <button type="button" class="btn btn-secondary">
+          <button
+            type="button"
+            onClick={refreshPage}
+            className="btn btn-secondary"
+          >
             Clear All
           </button>{" "}
           <button
             type="submit"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             onClick={handleSubmit}
           >
             Submit

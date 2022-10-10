@@ -42,6 +42,14 @@
     color: red;
 }
 
+
+.lanetwo{
+    /* border:1px solid #ccc; */
+    height: 60px;
+    width: fit-content;
+    margin-left: 10px;
+}
+
 .lane{
     /* border:1px solid #ccc; */
     margin-top: 0px;
@@ -49,19 +57,19 @@
     width: fit-content;
     margin-left: 10px;
 }
-
-.lanetwo{
-    /* border:1px solid #ccc; */
-    height: fit-content;
-    width: fit-content;
-    margin-left: 10px;
-}
-
 .maininputs{
     /* border: 1px solid #ccc; */
     height: 50px;
     width: fit-content;
     margin-left: 7px;
+}
+
+.maininputstwo{
+    /* border: 1px solid #ccc; */
+    margin-top: -50px;
+    height: 50px;
+    width: fit-content;
+    margin-left: 270px;
 }
 
 .maininputs input, .maininputstwo input{
@@ -72,13 +80,32 @@
     width: 70px;
 }
 
-.maininputstwo{
+.unit{  
     /* border: 1px solid #ccc; */
-    margin-top: -50px;
-    height: 50px;
+    margin-top: -40px;
+    height: fit-content;
     width: fit-content;
-    margin-left: 250px;
+    margin-left: 180px;
+    
 }
+
+.unittwo{  
+    /* border: 1px solid #ccc; */
+    margin-top: -40px;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 440px;
+}
+
+select{
+    border: none;
+}
+
+
+.max{
+    margin-top: -35px;
+}
+
 .maininput input{
     border: none;
     border-bottom: 2px solid #ccc;  
