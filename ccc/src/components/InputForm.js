@@ -7,13 +7,17 @@ export const InputForm = () => {
   const [inputFields, setInputFields] = useState([
     {
       id: uuidv4(),
-      deployment: "",
+      deployment: "Deployment 1",
       minPods: "1",
       maxPods: "",
       minRam: "1",
+      minRamUnit: "MiB",
       maxRam: "",
+      maxRamUnit: "MiB",
       minVcpu: "1",
+      minVcpuUnit: "MiB",
       maxVcpu: "",
+      maxVcpuUnit: "MiB",
       storage: "",
     },
   ]);
@@ -47,9 +51,13 @@ export const InputForm = () => {
         minPods: "1",
         maxPods: "",
         minRam: "1",
+        minRamUnit: "MiB",
         maxRam: "",
+        maxRamUnit: "MiB",
         minVcpu: "1",
+        minVcpuUnit: "MiB",
         maxVcpu: "",
+        maxVcpuUnit: "MiB",
         storage: "",
       },
     ]);
@@ -148,7 +156,13 @@ export const InputForm = () => {
                 </div>
 
                 <div className="unit">
-                  <select name="unit" id="unit">
+                  <select
+                    name="minRamUnit"
+                    id="unit"
+                    onChange={(event) =>
+                      handleChangeInput(inputField.id, event)
+                    }
+                  >
                     <option value="MiB">MiB</option>
                     <option value="GiB">GiB</option>
                   </select>
@@ -167,7 +181,13 @@ export const InputForm = () => {
                 </div>
 
                 <div className="unittwo max">
-                  <select name="unit" id="unit">
+                  <select
+                    name="maxRamUnit"
+                    id="unit"
+                    onChange={(event) =>
+                      handleChangeInput(inputField.id, event)
+                    }
+                  >
                     <option value="MiB">MiB</option>
                     <option value="GiB">GiB</option>
                   </select>
@@ -189,7 +209,13 @@ export const InputForm = () => {
                 </div>
 
                 <div className="unit">
-                  <select name="unit" id="unit">
+                  <select
+                    name="minVcpuUnit"
+                    id="unit"
+                    onChange={(event) =>
+                      handleChangeInput(inputField.id, event)
+                    }
+                  >
                     <option value="MiB">MiB</option>
                     <option value="GiB">GiB</option>
                   </select>
@@ -208,7 +234,13 @@ export const InputForm = () => {
                 </div>
 
                 <div className="unittwo max">
-                  <select name="unit" id="unit">
+                  <select
+                    name="maxVcpuUnit"
+                    id="unit"
+                    onChange={(event) =>
+                      handleChangeInput(inputField.id, event)
+                    }
+                  >
                     <option value="MiB">MiB</option>
                     <option value="GiB">GiB</option>
                   </select>
@@ -226,6 +258,19 @@ export const InputForm = () => {
                       handleChangeInput(inputField.id, event)
                     }
                   />
+                </div>
+
+                <div className="storageUnit">
+                  <select
+                    name="storageUnit"
+                    id="unit"
+                    onChange={(event) =>
+                      handleChangeInput(inputField.id, event)
+                    }
+                  >
+                    <option value="MiB">MiB</option>
+                    <option value="GiB">GiB</option>
+                  </select>
                 </div>
               </div>
 

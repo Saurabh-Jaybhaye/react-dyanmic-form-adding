@@ -97,6 +97,26 @@
     margin-left: 440px;
 }
 
+.storageUnit{  
+    /* border: 1px solid #ccc; */
+    margin-top: -25px;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 300px;
+}
+
+.storage{
+    margin-left: 20px;
+    /* border: 1px solid #ccc; */
+    width: fit-content;
+}
+
+
+.storage input{
+    margin-left: 20px;
+    width: 200px;
+}
+
 select{
     border: none;
 }
@@ -113,11 +133,7 @@ select{
     padding-left: 50px;
 }
 
-.storage{
-    margin-left: 20px;
-    /* border: 1px solid #ccc; */
-    width: fit-content;
-}   
+  
 
 .reset{
     /* border: 1px solid #ccc; */
