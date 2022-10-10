@@ -279,6 +279,7 @@ export const InputForm = () => {
                       >
                         <option value="MiB">MiB</option>
                         <option value="GiB">GiB</option>
+                        <option value="TB">TB</option>
                       </select>
                     </div>
                   </div>
