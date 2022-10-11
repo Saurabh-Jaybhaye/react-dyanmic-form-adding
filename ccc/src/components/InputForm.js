@@ -123,7 +123,6 @@ export const InputForm = () => {
                     <span>*</span>
                     <input
                       type="text"
-                      readOnly
                       className="form-control-plaintext"
                       placeholder="Deployment"
                       name="deployment"
