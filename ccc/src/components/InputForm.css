@@ -17,7 +17,7 @@
     border: 1px solid rgb(255, 0, 0);
     border-radius: 10px;
     width: 50%;
-    height: 370px;
+    height: fit-content;
     padding-bottom: 30px;
     margin-top: 10px;
     margin-left: 340px;
@@ -160,7 +160,7 @@ select{
 }
 .send{
     margin-top: 30px;
-    margin-left: 450px;
+    /* margin-left: 450px; */
     
     /* border: 1px solid #ccc; */
 }
