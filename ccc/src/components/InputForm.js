@@ -585,7 +585,9 @@ export const InputForm = () => {
             Submit
           </button>
         </div>
+        {/* End of clear all  and submit button code*/}
       </form>
+      {/* end of form */}
     </div>
   );
 };
