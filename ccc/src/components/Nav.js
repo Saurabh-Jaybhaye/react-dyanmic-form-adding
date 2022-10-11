@@ -4,10 +4,10 @@ export const Nav = () => {
   return (
     <div>
       <div className="nav">
-        <button type="button" className="btn btn-outline-primary">
+        <button type="button" className="btn btn-outline-danger">
           Home
         </button>{" "}
-        <button type="button" className="btn btn-outline-primary">
+        <button type="button" className="btn btn-outline-danger">
           About Us
         </button>
       </div>

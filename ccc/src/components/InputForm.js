@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Nav } from "./Nav";
-import "./InputForm.css";
-import { v4 as uuidv4 } from "uuid";
+  import React, { useState } from "react";
+  import { Nav } from "./Nav";
+  import "./InputForm.css";
+  import { v4 as uuidv4 } from "uuid";
+
 
 export const InputForm = () => {
   const [show, setShow] = useState(true);
@@ -23,7 +24,7 @@ export const InputForm = () => {
   ]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("InputFields", inputFields);
   };
 
@@ -113,7 +114,7 @@ export const InputForm = () => {
         </button>
       </div>
 
-      <form method="POST" action="" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         {show ? (
           <div>
             {inputFields.map((inputField) => (

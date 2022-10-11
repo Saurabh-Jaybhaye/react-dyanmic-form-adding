@@ -1,3 +1,4 @@
+
 .nav{
     margin-top: 20px;
     margin-left: 340px;
@@ -13,7 +14,7 @@
     height: fit-content;
 }
 .incontainer{
-    border: 1px solid #ccc;
+    border: 1px solid rgb(255, 0, 0);
     border-radius: 10px;
     width: 50%;
     height: 370px;
@@ -25,6 +26,8 @@
 .detailform input{
     margin-left: 20px;
     margin-top: -33px;
+    background-color: black;
+    color:white
 }
 .detailform{
     margin: 20px;
@@ -81,8 +84,10 @@
     margin-left: 10px;
     margin-top: 5px;
     border: none;
-    border-bottom: 2px solid #ccc;  
+    border-bottom: 2px solid rgb(255, 2, 2);  
     width: 70px;
+    background-color: black;
+    color:white
 }
 
 .unit{  
@@ -120,6 +125,8 @@
 .storage input{
     margin-left: 20px;
     width: 200px;
+    background-color: black;
+    color:white
 }
 
 select{
@@ -133,22 +140,28 @@ select{
 
 .maininput input{
     border: none;
-    border-bottom: 2px solid #ccc;  
+    border-bottom: 2px solid rgb(255, 2, 2);  
     margin-top: 5px;
     padding-left: 50px;
+    background-color: black;
+    color:white
 }
 
   
 
 .reset{
-    /* border: 1px solid #ccc; */
+    /* border: 1px solid rgb(110, 107, 107); */
     height: fit-content;
     width: fit-content;
     margin-left: 35px;
 }
+.reset button{
+    color:white;
+}
 .send{
     margin-top: 30px;
     margin-left: 450px;
+    
     /* border: 1px solid #ccc; */
 }
 span{
