@@ -4,7 +4,7 @@ import "./InputForm.css";
 import { v4 as uuidv4 } from "uuid";
 
 export const InputForm = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [inputFields, setInputFields] = useState([
     {
       id: uuidv4(),
@@ -26,6 +26,29 @@ export const InputForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("InputFields", inputFields);
+  };
+
+  const handleReset = (id) => {
+    const values = [...inputFields];
+    const containerId = values.findIndex((value) => value.id === id);
+    values[containerId] = [
+      {
+        id: uuidv4(),
+        deployment: "Deployment Name",
+        minPods: "1",
+        maxPods: "",
+        minRam: "1",
+        minRamUnit: "MiB",
+        maxRam: "",
+        maxRamUnit: "MiB",
+        minVcpu: "1",
+        minVcpuUnit: "MiB",
+        maxVcpu: "",
+        maxVcpuUnit: "MiB",
+        storage: "",
+      },
+    ];
+    setInputFields(values);
   };
 
   const refreshPage = (e) => {
@@ -285,7 +308,11 @@ export const InputForm = () => {
                   </div>
 
                   <div className="reset">
-                    <button type="button" className="btn btn-outline-primar">
+                    <button
+                      type="reset"
+                      onClick={() => handleReset(inputField.id)}
+                      className="btn btn-outline-primar"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
