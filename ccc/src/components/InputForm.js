@@ -8,7 +8,7 @@ export const InputForm = () => {
   const [inputFields, setInputFields] = useState([
     {
       id: uuidv4(),
-      deployment: "Deployment 1",
+      deployment: "Deployment",
       minPods: "1",
       maxPods: "",
       minRam: "1",
@@ -16,9 +16,8 @@ export const InputForm = () => {
       maxRam: "",
       maxRamUnit: "MiB",
       minVcpu: "1",
-      minVcpuUnit: "MiB",
       maxVcpu: "",
-      maxVcpuUnit: "MiB",
+      storageUnit: "Gib",
       storage: "",
     },
   ]);
@@ -34,7 +33,7 @@ export const InputForm = () => {
     values[containerId] = [
       {
         id: uuidv4(),
-        deployment: "Deployment Name",
+        deployment: "Deployment",
         minPods: "1",
         maxPods: "",
         minRam: "1",
@@ -42,9 +41,8 @@ export const InputForm = () => {
         maxRam: "",
         maxRamUnit: "MiB",
         minVcpu: "1",
-        minVcpuUnit: "MiB",
         maxVcpu: "",
-        maxVcpuUnit: "MiB",
+        storageUnit: "Gib",
         storage: "",
       },
     ];
@@ -71,7 +69,7 @@ export const InputForm = () => {
       ...inputFields,
       {
         id: uuidv4(),
-        deployment: "",
+        deployment: "Deployment",
         minPods: "1",
         maxPods: "",
         minRam: "1",
@@ -79,9 +77,8 @@ export const InputForm = () => {
         maxRam: "",
         maxRamUnit: "MiB",
         minVcpu: "1",
-        minVcpuUnit: "MiB",
         maxVcpu: "",
-        maxVcpuUnit: "MiB",
+        storageUnit: "Gib",
         storage: "",
       },
     ]);
@@ -123,11 +120,12 @@ export const InputForm = () => {
               <div key={inputField.id} className="incontainer">
                 <div className="row g-3">
                   <div className="detailform">
+                    <span>*</span>
                     <input
                       type="text"
                       readOnly
                       className="form-control-plaintext"
-                      placeholder="Deployment 1"
+                      placeholder="Deployment"
                       name="deployment"
                       value={inputField.deployment}
                       onChange={(event) =>
@@ -149,7 +147,8 @@ export const InputForm = () => {
 
                   <div className="lane">
                     <div className="maininputs">
-                      *<label> Min Pods </label>
+                      <span>*</span>
+                      <label> Min Pods </label>
                       <input
                         type="number"
                         placeholder="1"
@@ -158,6 +157,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="1"
                       />
                     </div>
                     <div className="maininputstwo">
@@ -175,7 +175,8 @@ export const InputForm = () => {
 
                   <div className="lanetwo">
                     <div className="maininputs">
-                      *<label> Min RAM </label>
+                      <span>*</span>
+                      <label> Min RAM </label>
                       <input
                         type="number"
                         placeholder="1"
@@ -184,6 +185,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="1"
                       />
                     </div>
 
@@ -212,7 +214,7 @@ export const InputForm = () => {
                       />
                     </div>
 
-                    <div className="unittwo max">
+                    <div className="unittwo">
                       <select
                         name="maxRamUnit"
                         id="unit"
@@ -228,7 +230,8 @@ export const InputForm = () => {
 
                   <div className="lanetwo">
                     <div className="maininputs">
-                      *<label> Min vCPU </label>
+                      <span>*</span>
+                      <label> Min vCPU </label>
                       <input
                         type="number"
                         placeholder="1"
@@ -237,23 +240,11 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="1"
                       />
                     </div>
 
-                    <div className="unit">
-                      <select
-                        name="minVcpuUnit"
-                        id="unit"
-                        onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
-                        }
-                      >
-                        <option value="MiB">MiB</option>
-                        <option value="GiB">GiB</option>
-                      </select>
-                    </div>
-
-                    <div className="maininputstwo max">
+                    <div className="maininputstwo ">
                       <label> Max vCPU </label>
                       <input
                         type="number"
@@ -263,19 +254,6 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                       />
-                    </div>
-
-                    <div className="unittwo max">
-                      <select
-                        name="maxVcpuUnit"
-                        id="unit"
-                        onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
-                        }
-                      >
-                        <option value="MiB">MiB</option>
-                        <option value="GiB">GiB</option>
-                      </select>
                     </div>
                   </div>
 
@@ -289,6 +267,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="1"
                       />
                     </div>
 
@@ -300,7 +279,6 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                       >
-                        <option value="MiB">MiB</option>
                         <option value="GiB">GiB</option>
                         <option value="TB">TB</option>
                       </select>

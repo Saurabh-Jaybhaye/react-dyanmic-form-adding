@@ -22,6 +22,10 @@
     margin-left: 340px;
 
 }
+.detailform input{
+    margin-left: 20px;
+    margin-top: -33px;
+}
 .detailform{
     margin: 20px;
     margin-top: 40px;
@@ -29,6 +33,7 @@
     height: fit-content;
     width: fit-content;
 }
+
 
 .closebtn{
     /* border: 1px solid #ccc; */
@@ -123,7 +128,7 @@ select{
 
 
 .max{
-    margin-top: -35px;
+    margin-top: -34px;
 }
 
 .maininput input{
@@ -145,4 +150,7 @@ select{
     margin-top: 30px;
     margin-left: 450px;
     /* border: 1px solid #ccc; */
+}
+span{
+    color: red;
 }
