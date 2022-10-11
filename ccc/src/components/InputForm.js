@@ -113,7 +113,7 @@ export const InputForm = () => {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form method="POST" action="" onSubmit={handleSubmit}>
         {show ? (
           <div>
             {inputFields.map((inputField) => (
@@ -157,6 +157,7 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                         min="1"
+                        required="required"
                       />
                     </div>
                     <div className="maininputstwo">
@@ -185,6 +186,7 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                         min="1"
+                        required="required"
                       />
                     </div>
 
@@ -240,6 +242,7 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                         min="1"
+                        required="required"
                       />
                     </div>
 
@@ -267,6 +270,7 @@ export const InputForm = () => {
                           handleChangeInput(inputField.id, event)
                         }
                         min="1"
+                        required="required"
                       />
                     </div>
 
