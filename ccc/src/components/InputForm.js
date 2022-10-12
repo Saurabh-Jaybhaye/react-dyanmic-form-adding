@@ -34,21 +34,21 @@ export const InputForm = () => {
         i.minRam > i.maxRam ||
         i.minVcpu > i.maxVcpu
       ) {
-        if (i.maxPods === "" && i.maxRam === "" && i.maxVcpu === "") {
-          setDeploymentValid(true);
-        } else {
+        if (i.maxPods !== "" || i.maxRam !== "" || i.maxVcpu !== "") {
           alert("max value must be greater than min value in Deployment");
+        } else {
+          setDeploymentValid(true);
         }
       }
 
       return i;
     });
     demonsetInputFields.map((i) => {
-      if (i.minRam > i.maxRam || i.minVcpu > i.maxVcpu) {
-        if (i.maxRam === "" && i.maxVcpu === "") {
-          setDemonValid(true);
-        } else {
+      if (i.demonMinRam > i.demonMaxRam || i.demonMinVcpu > i.demonMaxVcpu) {
+        if (i.demonMaxRam !== "" || i.demonMaxVcpu !== "") {
           alert("max value must be greater than min value in Demonset");
+        } else {
+          setDemonValid(true);
         }
       }
       return i;
