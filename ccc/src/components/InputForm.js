@@ -26,8 +26,9 @@ export const InputForm = () => {
   ]);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log("InputFields", inputFields);
+    e.preventDefault();
+    console.log("DepoymentInputFields", inputFields);
+    console.log("DemonsetInputFields", demonsetInputFields);
   };
 
   const handleReset = (id) => {
@@ -87,7 +88,6 @@ export const InputForm = () => {
     ]);
   };
 
-  // handleRemoveFields code will be same for demonset and deployment
   const handleRemoveFields = (id) => {
     const values = [...inputFields];
     values.splice(
@@ -99,7 +99,81 @@ export const InputForm = () => {
 
   // End of the deployment functions code
 
-  // function code for Demonset
+  // Start of the demonset functions code
+
+  const [demonsetInputFields, setDemonsetInputFields] = useState([
+    {
+      id: uuidv4(),
+      demonset: "Demonset",
+      demonMinRam: "1",
+      demonMinRamUnit: "MiB",
+      demonMaxRam: "",
+      demonMaxRamUnit: "MiB",
+      demonMinVcpu: "1",
+      demonMaxVcpu: "",
+      demonStorageUnit: "Gib",
+      demonStorage: "",
+    },
+  ]);
+
+  const handleDemonReset = (id) => {
+    const demonvalues = [...demonsetInputFields];
+    const containerId = demonvalues.findIndex((value) => value.id === id);
+    demonvalues[containerId] = [
+      {
+        id: uuidv4(),
+        demonset: "Demonset",
+        demonMinRam: "1",
+        demonMinRamUnit: "MiB",
+        demonMaxRam: "",
+        demonMaxRamUnit: "MiB",
+        demonMinVcpu: "1",
+        demonMaxVcpu: "",
+        demonStorageUnit: "Gib",
+        demonStorage: "",
+      },
+    ];
+    setDemonsetInputFields(demonvalues);
+  };
+
+  const handleChangeDemonInput = (id, event) => {
+    const newInputFields = demonsetInputFields.map((i) => {
+      if (id === i.id) {
+        i[event.target.name] = event.target.value;
+      }
+      return i;
+    });
+
+    setDemonsetInputFields(newInputFields);
+  };
+
+  const handleAddDemonsetFields = () => {
+    setDemonsetInputFields([
+      ...demonsetInputFields,
+      {
+        id: uuidv4(),
+        demonset: "Demonset",
+        demonMinRam: "1",
+        demonMinRamUnit: "MiB",
+        demonMaxRam: "",
+        demonMaxRamUnit: "MiB",
+        demonMinVcpu: "1",
+        demonMaxVcpu: "",
+        demonStorageUnit: "Gib",
+        demonStorage: "",
+      },
+    ]);
+  };
+
+  const handleDemonRemoveFields = (id) => {
+    const values = [...demonsetInputFields];
+    values.splice(
+      values.findIndex((value) => value.id === id),
+      1
+    );
+    setDemonsetInputFields(values);
+  };
+  //end of function code for Demonset
 
   return (
     <div className="topdiv">
@@ -111,14 +185,14 @@ export const InputForm = () => {
           onClick={() => setShow(!show)}
           className="btn btn-secondary"
         >
-          DEPLOYMENTS
+          Deployments
         </button>{" "}
         <button
           type="button"
           className="btn btn-secondary"
           onClick={handleAddFields}
         >
-          DEPLOYMENTS +
+          Deployments +
         </button>
       </div>
       {/* End of Deployment Button */}
@@ -363,7 +437,7 @@ export const InputForm = () => {
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={handleAddFields}
+            onClick={handleAddDemonsetFields}
           >
             Demonset +
           </button>
@@ -374,8 +448,8 @@ export const InputForm = () => {
 
         {hide ? (
           <div>
-            {inputFields.map((inputField) => (
-              <div key={inputField.id} className="incontainer">
+            {demonsetInputFields.map((demonsetInputField) => (
+              <div key={demonsetInputField.id} className="incontainer">
                 <div className="row g-3">
                   <div className="detailform">
                     <span>*</span>
@@ -384,9 +458,9 @@ export const InputForm = () => {
                       className="form-control-plaintext"
                       placeholder="Demonset"
                       name="demonset"
-                      value={inputField.deployment}
+                      value={demonsetInputField.demonset}
                       onChange={(event) =>
-                        handleChangeInput(inputField.id, event)
+                        handleChangeDemonInput(demonsetInputField.id, event)
                       }
                     />
                   </div>
@@ -395,8 +469,10 @@ export const InputForm = () => {
                     <button
                       type="button"
                       className="btn btn-outline-primar"
-                      disabled={inputFields.length === 1}
-                      onClick={() => handleRemoveFields(inputField.id)}
+                      disabled={demonsetInputFields.length === 1}
+                      onClick={() =>
+                        handleDemonRemoveFields(demonsetInputField.id)
+                      }
                     >
                       X
                     </button>
@@ -409,10 +485,10 @@ export const InputForm = () => {
                       <input
                         type="number"
                         placeholder="1"
-                        name="minRam"
-                        value={inputField.minRam}
+                        name="demonMinRam"
+                        value={demonsetInputField.demonMinRam}
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                         min="1"
                         required="required"
@@ -421,10 +497,10 @@ export const InputForm = () => {
 
                     <div className="unit">
                       <select
-                        name="minRamUnit"
+                        name="demonMinRamUnit"
                         id="unit"
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                       >
                         <option value="MiB">MiB</option>
@@ -436,20 +512,20 @@ export const InputForm = () => {
                       <label> Max RAM </label>
                       <input
                         type="number"
-                        name="maxRam"
-                        value={inputField.maxRam}
+                        name="demonMaxRam"
+                        value={demonsetInputField.demonMaxRam}
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                       />
                     </div>
 
                     <div className="unittwo">
                       <select
-                        name="maxRamUnit"
+                        name="demonMaxRamUnit"
                         id="unit"
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                       >
                         <option value="MiB">MiB</option>
@@ -465,10 +541,10 @@ export const InputForm = () => {
                       <input
                         type="number"
                         placeholder="1"
-                        name="minVcpu"
-                        value={inputField.minVcpu}
+                        name="demonMinVcpu"
+                        value={demonsetInputField.demonMinVcpu}
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                         min="1"
                         required="required"
@@ -479,10 +555,10 @@ export const InputForm = () => {
                       <label> Max vCPU </label>
                       <input
                         type="number"
-                        name="maxVcpu"
-                        value={inputField.maxVcpu}
+                        name="demonMaxVcpu"
+                        value={demonsetInputField.demonMaxVcpu}
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                       />
                     </div>
@@ -493,10 +569,10 @@ export const InputForm = () => {
                       <label> Storage </label>
                       <input
                         type="number"
-                        name="storage"
-                        value={inputField.storage}
+                        name="demonStorage"
+                        value={demonsetInputField.demonStorage}
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                         min="1"
                         required="required"
@@ -505,10 +581,10 @@ export const InputForm = () => {
 
                     <div className="storageUnit">
                       <select
-                        name="storageUnit"
+                        name="demonStorageUnit"
                         id="unit"
                         onChange={(event) =>
-                          handleChangeInput(inputField.id, event)
+                          handleChangeDemonInput(demonsetInputField.id, event)
                         }
                       >
                         <option value="GiB">GiB</option>
@@ -520,7 +596,7 @@ export const InputForm = () => {
                   <div className="reset">
                     <button
                       type="reset"
-                      onClick={() => handleReset(inputField.id)}
+                      onClick={() => handleDemonReset(demonsetInputField.id)}
                       className="btn btn-outline-primar"
                     >
                       <svg
@@ -543,7 +619,7 @@ export const InputForm = () => {
                     <button
                       type="button"
                       className="btn btn-outline-primar"
-                      onClick={handleAddFields}
+                      onClick={handleAddDemonsetFields}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
