@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 export const InputForm = () => {
   const [show, setShow] = useState(true); //code for deployment
   const [hide, setHide] = useState(true); //code for Demonset
+  const [valid, setValid] = useState(false); //code for checking validity
 
   // Start Code for deployment
   const [inputFields, setInputFields] = useState([
@@ -25,10 +26,57 @@ export const InputForm = () => {
     },
   ]);
 
+  const checkValidations = () => {
+    inputFields.map((i) => {
+      if (i.minPods > i.maxPods) {
+        if (i.maxPods === "") {
+          setValid(true);
+        } else {
+          alert("maxPods must be greater than minPods");
+        }
+      }
+      if (i.minRam > i.maxRam) {
+        if (i.maxRam === "") {
+          setValid(true);
+        } else {
+          alert("maxRam must be greater than minRam");
+        }
+      }
+      if (i.minVcpu > i.maxVcpu) {
+        if (i.maxVcpu === "") {
+          setValid(true);
+        } else {
+          alert("maxvCPU must be greater than minvCPU");
+        }
+      }
+      return i;
+    });
+    demonsetInputFields.map((i) => {
+      if (i.minRam > i.maxRam) {
+        if (i.maxRam === "") {
+          setValid(true);
+        } else {
+          alert("maxRam must be greater than minRam");
+        }
+      }
+      if (i.minVcpu > i.maxVcpu) {
+        if (i.maxVcpu === "") {
+          setValid(true);
+        } else {
+          alert("maxvCPU must be greater than minvCPU");
+        }
+      }
+      return i;
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("DepoymentInputFields", inputFields);
-    console.log("DemonsetInputFields", demonsetInputFields);
+    checkValidations();
+    if (valid) {
+      console.log("DepoymentInputFields", inputFields);
+      console.log("DemonsetInputFields", demonsetInputFields);
+    }
   };
 
   const handleReset = (id) => {
@@ -252,6 +300,7 @@ export const InputForm = () => {
                         type="number"
                         name="maxPods"
                         value={inputField.maxPods}
+                        min="2"
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
@@ -298,6 +347,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="2"
                       />
                     </div>
 
@@ -341,6 +391,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="2"
                       />
                     </div>
                   </div>
@@ -517,6 +568,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeDemonInput(demonsetInputField.id, event)
                         }
+                        min="2"
                       />
                     </div>
 
@@ -560,6 +612,7 @@ export const InputForm = () => {
                         onChange={(event) =>
                           handleChangeDemonInput(demonsetInputField.id, event)
                         }
+                        min="2"
                       />
                     </div>
                   </div>
