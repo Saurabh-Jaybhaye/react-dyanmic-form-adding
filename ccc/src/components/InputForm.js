@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 export const InputForm = () => {
   const [show, setShow] = useState(true); //code for deployment
   const [hide, setHide] = useState(true); //code for Demonset
-  const [valid, setValid] = useState(false); //code for checking validity
+  const [deploymentValid, setDeploymentValid] = useState(false); //code for checking validity
+  const [demonValid, setDemonValid] = useState(false); //code for checking validity
 
   // Start Code for deployment
   const [inputFields, setInputFields] = useState([
@@ -28,42 +29,26 @@ export const InputForm = () => {
 
   const checkValidations = () => {
     inputFields.map((i) => {
-      if (i.minPods > i.maxPods) {
-        if (i.maxPods === "") {
-          setValid(true);
+      if (
+        i.minPods > i.maxPods ||
+        i.minRam > i.maxRam ||
+        i.minVcpu > i.maxVcpu
+      ) {
+        if (i.maxPods === "" && i.maxRam === "" && i.maxVcpu === "") {
+          setDeploymentValid(true);
         } else {
-          alert("maxPods must be greater than minPods");
+          alert("max value must be greater than min value in Deployment");
         }
       }
-      if (i.minRam > i.maxRam) {
-        if (i.maxRam === "") {
-          setValid(true);
-        } else {
-          alert("maxRam must be greater than minRam");
-        }
-      }
-      if (i.minVcpu > i.maxVcpu) {
-        if (i.maxVcpu === "") {
-          setValid(true);
-        } else {
-          alert("maxvCPU must be greater than minvCPU");
-        }
-      }
+
       return i;
     });
     demonsetInputFields.map((i) => {
-      if (i.minRam > i.maxRam) {
-        if (i.maxRam === "") {
-          setValid(true);
+      if (i.minRam > i.maxRam || i.minVcpu > i.maxVcpu) {
+        if (i.maxRam === "" && i.maxVcpu === "") {
+          setDemonValid(true);
         } else {
-          alert("maxRam must be greater than minRam");
-        }
-      }
-      if (i.minVcpu > i.maxVcpu) {
-        if (i.maxVcpu === "") {
-          setValid(true);
-        } else {
-          alert("maxvCPU must be greater than minvCPU");
+          alert("max value must be greater than min value in Demonset");
         }
       }
       return i;
@@ -73,7 +58,7 @@ export const InputForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     checkValidations();
-    if (valid) {
+    if (deploymentValid && demonValid) {
       console.log("DepoymentInputFields", inputFields);
       console.log("DemonsetInputFields", demonsetInputFields);
     }
