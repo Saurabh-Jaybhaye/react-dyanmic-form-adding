@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav } from "./Nav";
+// import { Nav } from "./Nav";
 import "./InputForm.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -210,7 +210,6 @@ export const InputForm = () => {
 
   return (
     <div className="topdiv">
-      <Nav />
       {/* code Starting of Deployment Button */}
       <div className="nav">
         <button

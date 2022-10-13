@@ -1,9 +1,10 @@
-import { InputForm } from "./components/InputForm";
+import React from "react";
+import { Nav } from "./components/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <InputForm />
+    <div>
+      <Nav />
     </div>
   );
 }
