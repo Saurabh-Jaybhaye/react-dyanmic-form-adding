@@ -11,14 +11,14 @@ export const Nav = () => {
         <button
           type="button"
           onClick={() => setHomeShow(true)}
-          className="btn btn-outline-danger"
+          className="btn btn-outline-primary"
         >
           Home
         </button>{" "}
         <button
           type="button"
           onClick={() => setHomeShow(false)}
-          className="btn btn-outline-danger"
+          className="btn btn-outline-primary"
         >
           About Us
         </button>

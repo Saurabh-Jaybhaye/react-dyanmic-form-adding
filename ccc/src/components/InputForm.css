@@ -19,7 +19,7 @@
     height: fit-content;
 }
 .incontainer{
-    border: 1px solid rgb(255, 0, 0);
+    border: 1px solid #ccc;
     border-radius: 10px;
     width: 50%;
     height: fit-content;
@@ -31,8 +31,8 @@
 .detailform input{
     margin-left: 20px;
     margin-top: -33px;
-    background-color: black;
-    color:white
+    
+    
 }
 .detailform{
     margin: 20px;
@@ -89,10 +89,10 @@
     margin-left: 10px;
     margin-top: 5px;
     border: none;
-    border-bottom: 2px solid rgb(255, 2, 2);  
+    border-bottom: 2px solid #ccc;  
     width: 70px;
-    background-color: black;
-    color:white
+    
+    
 }
 
 .unit{  
@@ -130,8 +130,8 @@
 .storage input{
     margin-left: 20px;
     width: 200px;
-    background-color: black;
-    color:white
+    
+    
 }
 
 select{
@@ -145,11 +145,11 @@ select{
 
 .maininput input{
     border: none;
-    border-bottom: 2px solid rgb(255, 2, 2);  
+    border-bottom: 2px solid #ccc;  
     margin-top: 5px;
     padding-left: 50px;
-    background-color: black;
-    color:white
+    
+    
 } 
 
 .reset{
@@ -159,7 +159,7 @@ select{
     margin-left: 35px;
 }
 .reset button{
-    color:white;
+    
 }
 .send{
     margin-top: 30px;
@@ -205,8 +205,8 @@ span{
 .detailform input{
     margin-left: 20px;
     margin-top: -33px;
-    background-color: black;
-    color:white
+    
+    
 }
 .detailform{
     margin: 20px;
@@ -263,10 +263,10 @@ span{
     margin-left: 10px;
     margin-top: 5px;
     border: none;
-    border-bottom: 2px solid rgb(255, 2, 2);  
+    border-bottom: 2px solid #ccc;  
     width: 70px;
-    background-color: black;
-    color:white
+    
+    
 }
 
 .unit{  
@@ -304,8 +304,8 @@ span{
 .storage input{
     margin-left: 20px;
     width: 100px;
-    background-color: black;
-    color:white
+    
+    
 }
 
 select{
@@ -319,10 +319,10 @@ select{
 
 .maininput input{
     border: none;
-    border-bottom: 2px solid rgb(255, 2, 2);  
+    border-bottom: 2px solid #ccc;  
     margin-top: 5px;
     padding-left: 50px;
-    color:white
+    
 }
 
   
@@ -334,7 +334,7 @@ select{
     /* margin-left: -15px; */
 }
 .reset button{
-    color:white;
+    
 }
 .send{
     margin-top: 30px;
@@ -379,8 +379,8 @@ span{
     .detailform input{
         margin-left: 20px;
         margin-top: -33px;
-        background-color: black;
-        color:white
+        
+        
     }
     .detailform{
         margin: 20px;
@@ -435,10 +435,10 @@ span{
         margin-left: 10px;
         margin-top: 5px;
         border: none;
-        border-bottom: 2px solid rgb(255, 2, 2);  
+        border-bottom: 2px solid #ccc;  
         width: 70px;
-        background-color: black;
-        color:white
+        
+        
     }
     
     .unit{  
@@ -476,8 +476,8 @@ span{
     .storage input{
         margin-left: 20px;
         width: 200px;
-        background-color: black;
-        color:white
+        
+        
     }
     
     select{
@@ -490,10 +490,10 @@ span{
     
     .maininput input{
         border: none;
-        border-bottom: 2px solid rgb(255, 2, 2);  
+        border-bottom: 2px solid #ccc;  
         margin-top: 5px;
         padding-left: 50px;
-        color:white
+        
     }
 
     .reset{
@@ -503,7 +503,7 @@ span{
         margin-left: 35px;
     }
     .reset button{
-        color:white;
+        
     }
     .send{
         margin-top: 30px;

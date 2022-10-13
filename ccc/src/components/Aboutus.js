@@ -2,7 +2,7 @@ import React from "react";
 
 export const Aboutus = () => {
   return (
-    <div style={{ color: "white" }}>
+    <div>
       <center style={{ marginTop: "20%" }}>Aboutus</center>
     </div>
   );
