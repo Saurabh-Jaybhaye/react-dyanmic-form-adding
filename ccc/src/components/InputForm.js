@@ -263,7 +263,7 @@ export const InputForm = () => {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-trash"
+                        class="bi-trash bi"
                         viewBox="0 0 16 16"
                       >
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -393,22 +393,25 @@ export const InputForm = () => {
                     </div>
                   </div>
 
-                  <div className="lanetwo storage">
-                    <div className="maininput">
+                  <div className="lanetwo">
+                    <div className="maininputs">
+                      <span>*</span>
                       <label> Storage </label>
                       <input
                         type="number"
-                        name="storage"
-                        value={inputField.storage}
+                        placeholder="1"
+                        name="minRam"
+                        value={inputField.minRam}
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
                         min="1"
                         required="required"
                       />
+                      <div className="maininputstwo"></div>
                     </div>
 
-                    <div className="storageUnit">
+                    <div className="unit">
                       <select
                         name="storageUnit"
                         id="unit"
@@ -426,9 +429,9 @@ export const InputForm = () => {
                     <button
                       type="reset"
                       onClick={() => handleReset(inputField.id)}
-                      className="btn btn-outline-primar"
+                      className="btn btn-primary btn-outline-primar"
                     >
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
@@ -439,18 +442,18 @@ export const InputForm = () => {
                         <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z" />
                         <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z" />
                       </svg>
-                      <br />
+                      <br /> */}
                       Reset
                     </button>
                   </div>
 
-                  <div className="reset">
+                  <div className="reset done">
                     <button
                       type="button"
-                      className="btn btn-outline-primar"
+                      className="btn btn-primary btn-outline-primar"
                       onClick={handleAddFields}
                     >
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
@@ -461,7 +464,7 @@ export const InputForm = () => {
                         <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
                         <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
                       </svg>
-                      <br />
+                      <br /> */}
                       Done
                     </button>
                   </div>
