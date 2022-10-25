@@ -297,10 +297,10 @@ export const InputForm = () => {
                         type="number"
                         name="maxPods"
                         value={inputField.maxPods}
-                        min="2"
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
+                        min="2"
                       />
                     </div>
                   </div>
@@ -400,8 +400,8 @@ export const InputForm = () => {
                       <input
                         type="number"
                         placeholder="1"
-                        name="minRam"
-                        value={inputField.minRam}
+                        name="storage"
+                        value={inputField.storage}
                         onChange={(event) =>
                           handleChangeInput(inputField.id, event)
                         }
