@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./InputForm.css";
 import { v4 as uuidv4 } from "uuid";
 
-export const InputForm = () => {
+export const InputForm = (props) => {
   const [show, setShow] = useState(true); //code for deployment
   const [hide, setHide] = useState(true); //code for Demonset
   const [deploymentValid, setDeploymentValid] = useState(false); //code for checking validity
@@ -57,11 +57,14 @@ export const InputForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkValidations();
-    if (deploymentValid && demonValid) {
-      console.log("DepoymentInputFields", inputFields);
-      console.log("DemonsetInputFields", demonsetInputFields);
-    }
+    // checkValidations();
+    // if (deploymentValid && demonValid) {
+    // console.log("DepoymentInputFields", inputFields);
+    // console.log("DemonsetInputFields", demonsetInputFields);
+
+    props.ondataSubmit(inputFields);
+    // props.ondataSubmit(demonsetInputFields);
+    // }
   };
 
   const handleReset = (id) => {
@@ -230,7 +233,7 @@ export const InputForm = () => {
       {/* End of Deployment Button */}
 
       {/* code started of form */}
-      <form onSubmit={handleSubmit}>
+      <form method="POST" onSubmit={handleSubmit}>
         {/* code of show and hide deployments + code of deplyment container */}
         {show ? (
           <div>
@@ -630,8 +633,8 @@ export const InputForm = () => {
                     </div>
                   </div>
 
-                  <div className="lanetwo storage">
-                    <div className="maininput">
+                  <div className="lanetwo">
+                    <div className="maininputs">
                       <label> Storage </label>
                       <input
                         type="number"
@@ -645,7 +648,7 @@ export const InputForm = () => {
                       />
                     </div>
 
-                    <div className="storageUnit">
+                    <div className="unit">
                       <select
                         name="demonStorageUnit"
                         id="unit"
