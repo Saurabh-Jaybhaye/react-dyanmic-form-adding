@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { InputForm } from "./InputForm";
-import { Aboutus } from "./Aboutus";
+// import { Aboutus } from "./Aboutus";
 import { Testing } from "./Testing";
 
 export const Nav = () => {
@@ -39,7 +39,7 @@ export const Nav = () => {
           </div>
         ) : (
           <div className="App">
-            <Aboutus />
+            {/* <Aboutus /> */}
             <Testing data={dataValues} />
           </div>
         )}
